@@ -17,14 +17,14 @@ launch firefox
 cat /proc/firefox-pid/smaps > 1
 run: training/debug/mm/munch.c
 cat /proc/firefox-pid/smaps > 2
-compare 1 and 2
+compare 1 and 2 by meld
 
 3. page cache
 drop cache at first:
 root@baohua-VirtualBox:/proc/sys/vm# echo 3 > drop_caches
 
 #free
-#dd if=/dev/sda1 of=/dev/null
+#cat /dev/sda1
 #free
 
 compare the output of the two free

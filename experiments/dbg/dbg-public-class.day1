@@ -17,9 +17,11 @@ training/debug/core-dump
 4. compile procedure
 program-c/compile-procedure
 
+---------------------------------
 5. dynamic link
 toolchain/shlib
 read: debug-dylink.readme
+---------------------------------
 
 6. 
 draw a diagram for binaries dependency;
@@ -47,7 +49,7 @@ __errno_location
 
 7.
 gprof
-debug/gprof/
+debug/gprof/: following doc gprof.txt
 
 8. LD_PRELOAD
-training/toolchain/ldpreload
+training/toolchain/ldpreload: following readme

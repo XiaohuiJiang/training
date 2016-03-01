@@ -7,7 +7,7 @@ thread/thread_life.c
 
 3. cyclictest -p 99 -t1 -n
 
-4. run thread/thread_life.c
+4. run thread/thread_life.c  /* if 0 -> if 1 */
 run top;
 
 use chrt and taskset to change scheduler for its threads
