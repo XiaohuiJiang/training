@@ -29,17 +29,22 @@ int main(int argc, char **argv)
 	}
 
 	sleep(1);
-#if 1
-	/* 
-	 * enable this will trigger OOM killer
-	 * disable this will trigger Page Reclaim
-	 */
-	mlockall(MCL_CURRENT | MCL_FUTURE);
-#endif
 	printf("memory base:%p\n", m);
 
-	for (i = 0 ; i < MAP_SIZE; i++)
+	for (i = 0 ; i < MAP_SIZE; i++) {
 		(void)m[i];
+		if( (i & 0xfffff) == 0) {
+			usleep(100000);
+			printf("MiB:%d\n", i >> 20);
+			/*
+			 * enable this will trigger OOM killer(don't release mmap area)
+			 * disable this will trigger Page Reclaim(no OOM)
+			 */
+#if 0
+			mlock(m, i);
+#endif
+		}
+	}
 
 	pause();
 }
