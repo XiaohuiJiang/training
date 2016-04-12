@@ -1,5 +1,16 @@
 1. strace/ltrace
-2. add a very simple .c in drivers/char, Kconfig and Makefile
+写一个最简单的有printf类似的程序，用strace/lstrace跟踪
+
+2. 学会使用pcduino3
+串口连接（kermit）；
+网口连接(板子和PC直连)；
+观察根文件系统；
+
+3. 学会使用gdbserver
+把电脑上的~/develop/training/debug/gdb下面编译好的gdb-exam拷贝到pcduino3的/usr/bin
+用gdbserver(pcduino3)和arm-linux-gnueabihf-gdb（电脑）进行调试
+
+4. 在板子内核源代码(~/develop/pcduino/kernel)下面的drivers/char添加一个hello.c, 并修改Kconfig和Makefile
 
 #include <linux/init.h>
 #include <linux/module.h>
@@ -17,7 +28,9 @@ static void __exit hello_exit(void)
 }
 module_exit(hello_exit);
 
-3. run arm-...-objdump for a kernel binary(.o, .ko and vmlinux)
-4. run kernel/extra/run-no-graphics.sh and check the rootfs
-5. build busybox by ARM-toolchain and check the result
-6. run qemu by debug mode, set breakpoint at start_kernel and run step
+编译内核(尝试把hello编译为.ko和直接built-in 2种情况)，重新烧卡。
+并放到板子上去跑。
+
+5. 跑fork/vfork的例子(路径~/develop/training/process/fork)
+
+
