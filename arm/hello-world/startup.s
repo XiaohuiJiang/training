@@ -1,5 +1,9 @@
 .globl _start
 _start:
+    /*
+     * The uart tx register in the versatilepb qemu target is
+     * at address 0x101f1000
+     */
     ldr r0,=0x101f1000
     mov r1,#0
 loop:
