@@ -8,9 +8,9 @@ run: training/debug/mm/munch.c
 run: training/debug/mm/mmap.c with/without marco mlockall
 
 create a memory group xxx and put munch.c to the group:
-1. sudo mkdir /sys/fs/cgroup/memory/xxx
-2. limit the memory bytes in the group
-3. sudo cgexec -g memory:xxx ./a.out
+	(1). sudo mkdir /sys/fs/cgroup/memory/xxx
+	(2). limit the memory bytes in the group
+	(3). sudo cgexec -g memory:xxx ./a.out
 
 2. page reclaim
 launch firefox
@@ -30,6 +30,9 @@ root@baohua-VirtualBox:/proc/sys/vm# echo 3 > drop_caches
 compare the output of the two free
 
 4. smem
+	$ smem
+	$ smem --pie=comand
+	$ smem --bar=command
 
 5. valgrind
 run: training/memory_check/valgrind

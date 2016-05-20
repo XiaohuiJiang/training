@@ -6,6 +6,7 @@
 
 4. trace /dev/shm/xxx and find the related process for POSIX shared memory
 training/process/posix-ipc
+~/develop/training/process/posix-ipc
 
 5. use gdb to dump mutex owner
 training/thread/deadlock
