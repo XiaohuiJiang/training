@@ -5,12 +5,16 @@
 
 run: training/debug/mm/munch.c
 #dmesg
+
+---------------
 run: training/debug/mm/mmap.c with/without marco mlockall
 
 create a memory group xxx and put munch.c to the group:
 	(1). sudo mkdir /sys/fs/cgroup/memory/xxx
 	(2). limit the memory bytes in the group
 	(3). sudo cgexec -g memory:xxx ./a.out
+----------------
+
 
 2. page reclaim
 launch firefox
@@ -34,9 +38,10 @@ compare the output of the two free
 	$ smem --pie=comand
 	$ smem --bar=command
 
+-------------
 5. valgrind
 run: training/memory_check/valgrind
-
+------------
 
 6.  build a a.out with while(1)
 (1) run one ./a.out
@@ -47,4 +52,6 @@ run: training/memory_check/valgrind
 
 7. use "pmap" command to show the memory map of a process
 
+----------
 8. splint: training/program-c/lint
+----------

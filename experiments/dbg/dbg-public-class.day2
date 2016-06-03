@@ -6,6 +6,7 @@ training/process/fork
 thread/thread_life.c
 
 3. cyclictest -p 99 -t1 -n
+sudo ...
 
 4. run thread/thread_life.c  /* if 0 -> if 1 */
 run top;
@@ -16,7 +17,10 @@ renice -n -6 -g pid
 
 how to run chrt, taskset:
 ~/develop/training/process/tools
+sudo taskset -a -p 03 4354
+sudo chrt -f -a -p 50 4206
 
+----------------------
 5. 
 cgroup
 create two cpu:xxx cpu:yyy group, 
