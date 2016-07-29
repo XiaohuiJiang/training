@@ -13,6 +13,10 @@
 #include <linux/genhd.h>
 #include <linux/blkdev.h>
 #include <linux/bio.h>
+#include <linux/version.h>
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,3,0)
+#include <linux/vmalloc.h>
+#endif
 
 static int vmem_disk_major;
 module_param(vmem_disk_major, int, 0);
@@ -114,7 +118,12 @@ static void vmem_disk_make_request(struct request_queue *q, struct bio *bio)
 	int status;
 
 	status = vmem_disk_xfer_bio(dev, bio);
-	bio_endio(bio, status);
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,3,0)
+        bio->bi_error = status;
+        bio_endio(bio);
+#else
+        bio_endio(bio, status);
+#endif
 }
 
 static int vmem_disk_getgeo(struct block_device *bdev, struct hd_geometry *geo)
