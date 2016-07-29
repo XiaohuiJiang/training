@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 		child_process();
 	}
 	else{
-		printf("Child process %d, data %d\n",getpid(),data);
+		printf("Parent process %d, data %d\n",getpid(),data);
 		data = 20;
 		printf("Parent process %d, data %d\n",getpid(), data);
 		sleep(2);
