@@ -5,4 +5,4 @@ ulimit -c unlimited
 
 (2)
 set core pattern:
-echo "core" > /proc/sys/kernel/core_pattern
+sudo sh -c 'echo "core" > /proc/sys/kernel/core_pattern'
