@@ -1,7 +1,6 @@
 1. oom 
-#sudo bash
-#swapoff -a
-#echo 1 > /proc/sys/vm/overcommit_memory
+$ sudo swapoff -a
+$ sudo sh -c 'echo 1 > /proc/sys/vm/overcommit_memory'
 
 run: training/debug/mm/munch.c
 #dmesg
