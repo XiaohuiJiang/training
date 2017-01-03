@@ -7,7 +7,7 @@ a. 父进程先被kill，子进程不被kill；观察pstree
 b. 子进程被kill，父进程不wait；观察僵尸进程
 
 3. 跑多线程程序： 
-training/thread/thread_life.c
+training/thread/thread_life.c   "-pthread"
 用strace跟踪程序的运行
 
 4. kernel thread
@@ -46,8 +46,8 @@ cat /proc/slabinfo
 在电脑上面运行
 #sudo bash
 #swapoff -a
-#echo 1 > /proc/sys/vm/overcommit_memory
+# sudo sh -c 'echo 1 > /proc/sys/vm/overcommit_memory'
 跑程序training/debug/mm/munch.c
 
-观察系统out-of-memory后的杀进程
+观察系统out-of-memory后的杀进程, dmesg
 

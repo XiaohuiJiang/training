@@ -2,9 +2,9 @@
 写一个最简单的有printf类似的程序，用strace/lstrace跟踪
 
 2. 学会使用pcduino3
-串口连接（kermit）；
-网口连接(板子和PC直连)；
-观察根文件系统；
+串口连接（kermit）；    c, ctrl \ c, exit
+网口连接(板子和PC直连)；  scp,ssh
+观察根文件系统； 
 
 3. 学会使用gdbserver
 把电脑上的~/develop/training/debug/gdb下面编译好的gdb-exam拷贝到pcduino3的/usr/bin

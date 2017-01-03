@@ -1,3 +1,6 @@
+#sudo swapoff -a
+#sudo sh -c 'echo 1 > /proc/sys/vm/overcommit_memory'
+
 1. page reclaim
 启动firefox后，第一次抓smaps
 cat /proc/firefox-pid/smaps > 1
@@ -19,7 +22,7 @@ sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'
 #free
 
 运行
-sudo cat /dev/sda1
+sudo cat /dev/sda1 > /dev/null
 后，再看第2次
 #free
 观察其中的free命令各行变化
