@@ -1,3 +1,6 @@
+to let linker search libraries in this dir, set:
+export LD_LIBRARY_PATH=/home/baohua/develop/training/toolchain/shlib
+
 barry@barry-VirtualBox:~/training/shlib$ gdb ./main 
 GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
 Copyright (C) 2012 Free Software Foundation, Inc.
