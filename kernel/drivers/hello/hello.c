@@ -18,7 +18,7 @@ module_init(hello_init);
 
 static void __exit hello_exit(void)
 {
-	printk(KERN_INFO "Hello World exit\n ");
+	printk(KERN_INFO "Hello World exit\n");
 }
 module_exit(hello_exit);
 
