@@ -23,7 +23,7 @@ int child_main(void *arg)
 int main()
 {
     	pid_t child_pid;
-	child_pid = clone(child_main,child_stack+STACK_SIZE,SIGCHLD,NULL);
+	child_pid = clone(child_main,child_stack+STACK_SIZE,SIGCHLD | CLONE_NEWPID,NULL);
 
 	if (child_pid == -1)
         	errExit("clone");
