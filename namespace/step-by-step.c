@@ -19,6 +19,7 @@ int child_main(void *arg)
 	printf("child\n");
 	system("mount -t proc none /proc");
 	mount("/home/baohua/test-dir", "/mnt", "none", MS_BIND, NULL);
+	sethostname("container",10);
 	execlp("/bin/bash","bash",NULL,NULL);
 	return 1;
 }
@@ -27,7 +28,7 @@ int main()
 {
     	pid_t child_pid;
 	child_pid = clone(child_main,child_stack+STACK_SIZE,SIGCHLD | CLONE_NEWPID |
-		CLONE_NEWNS | CLONE_NEWNET,NULL);
+		CLONE_NEWNS | CLONE_NEWNET | CLONE_NEWUTS, NULL);
 
 	if (child_pid == -1)
         	errExit("clone");
