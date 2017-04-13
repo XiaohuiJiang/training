@@ -44,7 +44,7 @@ static int child_main(void *arg)
 	sleep(1); //wait for 1 second to make certain uid_map and gid_map is written
 	printf("child\n");
 	system("mount -t proc none /proc");
-	mount("/home/baohua/test-dir", "/mnt", "none", MS_BIND, NULL);
+	mount("/home/baohua/develop/training/namespace/test-dir", "/mnt", "none", MS_BIND, NULL);
 	sethostname("container",10);
 	execlp("/bin/bash","bash",NULL,NULL);
 	return 1;
