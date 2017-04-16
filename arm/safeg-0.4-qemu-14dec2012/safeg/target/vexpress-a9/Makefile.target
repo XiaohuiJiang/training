@@ -1,0 +1,18 @@
+# Makefile.target
+#
+# 2012 (c) Daniel Sangorrin <daniel.sangorrin@gmail.com>
+#
+# Contains values for the QEMU vexpress-a9 target.
+#
+TOOLPREFIX = arm-none-eabi
+CPU = cortex-a9
+TEXT_START_ADDRESS   = 0x80000000
+SECURE_START_ADDRESS = 0x81000000
+NORMAL_START_ADDRESS = 0x60000000
+ARCH_ARM = 7
+CFLAGS += -DSAFEG_VEXPRESSA9 -DTNUM_PRC=1
+TYPE = 2272
+LINUX_BOOTARGS = "root=/dev/mmcblk0 rw init=/bin/sh console=ttyAMA0,38400n8 mem=512M ip=dhcp"
+
+
+
