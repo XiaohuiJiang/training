@@ -12,7 +12,7 @@ create a memory group xxx and put munch.c to the group:
 	(1). sudo mkdir /sys/fs/cgroup/memory/xxx
 	(2). limit the memory bytes in the group
 e.g.
-/sys/fs/cgroup/memory/A$ sudo sh -c 'echo $((100*1024*1024)) > memory.limit_in_bytes'
+/sys/fs/cgroup/memory/xxx$ sudo sh -c 'echo $((100*1024*1024)) > memory.limit_in_bytes'
 	(3). sudo cgexec -g memory:xxx ./a.out
 ----------------
 
