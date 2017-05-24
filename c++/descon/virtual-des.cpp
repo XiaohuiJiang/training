@@ -14,10 +14,10 @@ public:
     void DoSomething() { cout << "Do something in class ClxDerived!" << endl; };
 };
 
-  int   main(){  
-  //虚析构函数，它所存在的意义：基类的指针指向派生类对象，用基类的指针删除派生类对象
-  ClxBase *p =  new ClxDerived;
-  p->DoSomething();
-  delete p;
-  return 0;
-  }  
+int main(){  
+	//虚析构函数，它所存在的意义：基类的指针指向派生类对象，用基类的指针删除派生类对象
+	ClxBase *p =  new ClxDerived;
+	p->DoSomething();
+	delete p;
+	return 0;
+}  
