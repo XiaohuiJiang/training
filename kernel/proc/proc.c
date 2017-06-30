@@ -4,6 +4,7 @@
 #include <linux/version.h>
 #include <linux/proc_fs.h>
 #include <linux/seq_file.h>
+#include <asm/uaccess.h>
 
 static unsigned int variable;
 static struct proc_dir_entry *test_dir, *test_entry;
@@ -38,9 +39,27 @@ static ssize_t test_proc_write(struct file *file, const char __user *buffer,
 {
 	struct seq_file *seq = file->private_data;
 	unsigned int *ptr_var = seq->private;
+	int err;
+	char *kbuffer;
 
-	*ptr_var = simple_strtoul(buffer, NULL, 10);
+        if (!buffer || count > PAGE_SIZE - 1)
+	                return -EINVAL;
+
+	kbuffer = (char *)__get_free_page(GFP_KERNEL);
+	if (!kbuffer)
+		return -ENOMEM;
+
+	err = -EFAULT;
+	if (copy_from_user(kbuffer, buffer, count))
+		goto out;
+	kbuffer[count] = '\0';
+
+	*ptr_var = simple_strtoul(kbuffer, NULL, 10);
 	return count;
+
+out:
+	free_page((unsigned long)buffer);
+	return err;
 }
 
 static int test_proc_open(struct inode *inode, struct file *file)
